@@ -7,17 +7,17 @@ if [ "$(hostname)" == "ip-10-1-0-96" ]; then
 	DISTRIBUTION=slmicro61-test
 else 
 	echo not krones;
-	SUSEMANAGER=susemanager.weiss.ddnss.de
-	LIFECYCLE=staging-slmicro61-test
-	DISTRIBUTION=slmicro61-test
+	SUSEMANAGER=suma50sl.mb.int
+	LIFECYCLE=sm61-dev
+	DISTRIBUTION=Sm61
 fi
 
 # set variables
 TARGET_DIR=.
 #PROFILE="aarch64-self_install"
 #PROFILE="aarch64-self_install-gpu"
-#PROFILE="x86-self_install"
-PROFILE="x86-rt-self_install"
+PROFILE="x86-self_install"
+#PROFILE="x86-rt-self_install"
 KIWI_IMAGE="registry.suse.com/bci/kiwi:10.1.10"
 
 # clean and recreate the build folder
