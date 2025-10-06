@@ -1,16 +1,8 @@
 #!/bin/bash
 
-if [ "$(hostname)" == "ip-10-1-0-96" ]; then
-	echo krones; 
-	SUSEMANAGER=10.1.0.96
-	LIFECYCLE=slmicro61-test
-	DISTRIBUTION=slmicro61-test
-else 
-	echo not krones;
-	SUSEMANAGER=suma50sl.mb.int
-	LIFECYCLE=sm61-dev
-	DISTRIBUTION=Sm61
-fi
+SUSEMANAGER=suma50sl.mb.int
+LIFECYCLE=sm61-dev
+DISTRIBUTION=Sm61
 
 # set variables
 TARGET_DIR=.
@@ -18,7 +10,8 @@ TARGET_DIR=.
 #PROFILE="aarch64-self_install-gpu"
 PROFILE="x86-self_install"
 #PROFILE="x86-rt-self_install"
-KIWI_IMAGE="registry.suse.com/bci/kiwi:10.1.10"
+#KIWI_IMAGE="registry.suse.com/bci/kiwi:10.1.10"
+KIWI_IMAGE="registry.suse.com/bci/kiwi:10.2"
 
 # clean and recreate the build folder
 rm -rf $TARGET_DIR/image
@@ -52,4 +45,5 @@ exit
 # not required for iso building.. 
 rm -rf $TARGET_DIR/image-bundle
 mkdir -p $TARGET_DIR/image-bundle
-podman run --privileged -v $TARGET_DIR:/image:Z registry.suse.com/bci/kiwi:10.1.10 kiwi-ng result bundle --target-dir /image/image --bundle-dir=/image/image-bundle --id=0
+# podman run --privileged -v $TARGET_DIR:/image:Z registry.suse.com/bci/kiwi:10.1.10 kiwi-ng result bundle --target-dir /image/image --bundle-dir=/image/image-bundle --id=0
+podman run --privileged -v $TARGET_DIR:/image:Z registry.suse.com/bci/kiwi:10.2 kiwi-ng result bundle --target-dir /image/image --bundle-dir=/image/image-bundle --id=0
