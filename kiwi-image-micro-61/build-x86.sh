@@ -11,7 +11,8 @@ TARGET_DIR=.
 PROFILE="x86-self_install"
 #PROFILE="x86-rt-self_install"
 #KIWI_IMAGE="registry.suse.com/bci/kiwi:10.1.10"
-KIWI_IMAGE="registry.suse.com/bci/kiwi:10.2"
+#KIWI_IMAGE="registry.suse.com/bci/kiwi:10.2"
+KIWI_IMAGE="registry.suse.com/edge/3.3/kiwi-builder:10.2.12.0"
 
 # clean and recreate the build folder
 rm -rf $TARGET_DIR/image
