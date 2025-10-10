@@ -1,0 +1,24 @@
+interfaces:
+- name: enp1s0
+  type: ethernet
+  state: up
+  mac-address: 34:8a:b1:4b:17:ff
+  ipv4:
+    address:
+    - ip: 192.168.0.192
+      prefix-length: 24
+    enabled: true
+  ipv6:
+    enabled: false
+dns-resolver:
+  config:
+    server:
+      - 192.168.0.31
+      - 192.168.0.54
+routes:
+  config:
+    - destination: 0.0.0.0/0
+      metric: 100
+      next-hop-address: 192.168.0.1
+      next-hop-interface: enp1s0
+      table-id: 254

@@ -1,0 +1,35 @@
+interfaces:
+- name: eth0
+  type: ethernet
+  state: up
+  #ethLAN0
+  #mac-address: 48:b0:2d:fd:fb:83
+  #ethLAN1
+  mac-address: 48:b0:2d:fd:fb:82
+  #ethLAN2
+  #mac-address: c4:98:94:60:26:03
+  #ethLAN3
+  #mac-address: c4:98:94:60:26:04
+  #ethLAN4
+  #mac-address: c4:98:94:60:26:05
+  #ethLAN5
+  #mac-address: c4:98:94:60:26:06
+  ipv4:
+    address:
+    - ip: 192.168.0.191
+      prefix-length: 24
+    enabled: true
+  ipv6:
+    enabled: false
+dns-resolver:
+  config:
+    server:
+      - 192.168.0.31
+      - 192.168.0.54
+routes:
+  config:
+    - destination: 0.0.0.0/0
+      metric: 100
+      next-hop-address: 192.168.0.1
+      next-hop-interface: eth0
+      table-id: 254

@@ -1,0 +1,3 @@
+defaultNamespace: kube-system
+helm:
+  releaseName: nvidia-device-plugin

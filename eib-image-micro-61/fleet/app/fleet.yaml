@@ -1,0 +1,3 @@
+defaultNamespace: default
+helm:
+  releaseName: gpu-test 

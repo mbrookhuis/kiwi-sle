@@ -30,25 +30,7 @@
         <profile name="x86-self_install" description="Raw disk for x86_64 - uEFI" arch="x86_64">
             <requires profile="bootloader"/>
         </profile>
-        <profile name="x86-self_install-encrypted" description="Raw disk for x86_64 - uEFI - with encryption" arch="x86_64">
-            <requires profile="bootloader"/>
-        </profile>
-        <profile name="x86-rt-self_install-encrypted" description="Raw disk for x86_64 - uEFI - with encryption" arch="x86_64">
-            <requires profile="bootloader"/>
-        </profile>
         <profile name="aarch64-self_install" description="Raw disk for aarch64" arch="aarch64">
-            <requires profile="bootloader"/>
-        </profile>
-        <profile name="aarch64-self_install-encrypted" description="Raw disk for aarch64" arch="aarch64">
-            <requires profile="bootloader"/>
-        </profile>
-        <profile name="aarch64-rt" description="Raw disk for aarch64 with RT kernel" arch="aarch64">
-            <requires profile="bootloader"/>
-        </profile>
-        <profile name="aarch64-rt-self_install" description="Raw disk for aarch64 with RT kernel" arch="aarch64">
-            <requires profile="bootloader"/>
-        </profile>
-        <profile name="aarch64-rt-self_install-encrypted" description="Raw disk for aarch64 with RT kernel and encryption" arch="aarch64">
             <requires profile="bootloader"/>
         </profile>
         <profile name="x86-legacy" description="Raw disk for x86_64 - legacy boot" arch="x86_64">
@@ -81,21 +63,6 @@
         <profile name="s390-fba" description="Raw disk for s390 - DASD" arch="s390x">
             <requires profile="bootloader"/>
         </profile>
-        <profile name="s390-fcp" description="Raw disk for s390 - SCSI" arch="s390x">
-            <requires profile="bootloader"/>
-        </profile>
-        <profile name="ppc64le-512ss" description="Raw disk for PPc64 - 512 sector size" arch="ppc64le">
-            <requires profile="bootloader"/>
-        </profile>
-        <profile name="ppc64le-4096ss" description="Raw disk for PPc64 - 4096 sector size" arch="ppc64le">
-            <requires profile="bootloader"/>
-        </profile>
-        <profile name="ppc64le-512ss-self_install" description="Raw disk for PPc64 - 512 sector size" arch="ppc64le">
-            <requires profile="bootloader"/>
-        </profile>
-        <profile name="ppc64le-4096ss-self_install" description="Raw disk for PPc64 - 4096 sector size" arch="ppc64le">
-            <requires profile="bootloader"/>
-        </profile> 
         <!-- Images (flavor + platform) -->
         <profile name="Default" description="SL Micro with Podman and KVM as raw image with uEFI boot" arch="x86_64">
             <requires profile="full"/>
@@ -173,15 +140,6 @@
             <requires profile="x86-rt-self_install"/>
             <requires profile="self_install"/>
         </profile>
-        <profile name="Base-RT" description="SL Micro with Podman as raw image with uEFI boot" arch="aarch64">
-            <requires profile="container-host"/>
-            <requires profile="aarch64-rt"/>
-        </profile>
-        <profile name="Base-RT-SelfInstall" description="SL Micro with Podman as raw image with uEFI boot - SelfInstall" arch="aarch64">
-            <requires profile="container-host"/>
-            <requires profile="aarch64-rt-self_install"/>
-            <requires profile="self_install"/>
-        </profile>
         <profile name="Default-qcow" description="SL Micro with Podman and KVM as raw image for KVM on System z" arch="s390x">
             <requires profile="full"/>
             <requires profile="s390-kvm"/>
@@ -206,14 +164,6 @@
             <requires profile="container-host"/>
             <requires profile="s390-fba"/>
         </profile>
-        <profile name="Default-fcp" description="SL Micro with Podman and KVM as raw image for zFCP on System z" arch="s390x">
-            <requires profile="full"/>
-            <requires profile="s390-fcp"/>
-        </profile>
-        <profile name="Base-fcp" description="SL Micro with Podman as raw image for zFCP on System z" arch="s390x">
-            <requires profile="container-host"/>
-            <requires profile="s390-fcp"/>
-        </profile>
         <profile name="Default-legacy" description="SL Micro with Podman as raw image with legacy boot" arch="x86_64">
             <requires profile="full"/>
             <requires profile="x86-legacy"/>
@@ -234,47 +184,11 @@
 	    <requires profile="container-host"/>
 	    <requires profile="aarch64-qcow"/>
         </profile>
-
-	<profile name="Base-512" description="SL Micro with Podman as raw image for ppc64le with 512b sector size" arch="ppc64le">
-            <requires profile="container-host"/>
-            <requires profile="ppc64le-512ss"/>
-        </profile>
-	<profile name="Base-4096" description="SL Micro with Podman as raw image for ppc64le with 4096b sector size" arch="ppc64le">
-            <requires profile="container-host"/>
-            <requires profile="ppc64le-4096ss"/>
-        </profile>
-	<profile name="Base-512-SelfInstall" description="SL Micro with Podman as self-install image for ppc64le with 512b sector size" arch="ppc64le">
-            <requires profile="container-host"/>
-            <requires profile="ppc64le-512ss-self_install"/>
-            <requires profile="self_install"/>
-        </profile>
-	<profile name="Base-4096-SelfInstall" description="SL Micro with Podman as self-install image for ppc64le with 512b sector size" arch="ppc64le">
-            <requires profile="container-host"/>
-            <requires profile="ppc64le-4096ss-self_install"/>
-            <requires profile="self_install"/>
-        </profile>
-	<profile name="Default-512" description="SL Micro with Podman and KVM as raw image for ppc64le with 512b sector size" arch="ppc64le">
-            <requires profile="full"/>
-            <requires profile="ppc64le-512ss"/>
-        </profile>
-	<profile name="Default-4096" description="SL Micro with Podman and KVM as raw image for ppc64le with 4096b sector size" arch="ppc64le">
-            <requires profile="full"/>
-            <requires profile="ppc64le-4096ss"/>
-        </profile>
-	<profile name="Default-512-SelfInstall" description="SL Micro with Podman and KVM as self-install image for ppc64le with 512b sector size" arch="ppc64le">
-            <requires profile="full"/>
-            <requires profile="ppc64le-512ss-self_install"/>
-            <requires profile="self_install"/>
-        </profile>
-	<profile name="Default-4096-SelfInstall" description="SL Micro with Podman and KVM as self-install image for ppc64le with 512b sector size" arch="ppc64le">
-            <requires profile="full"/>
-            <requires profile="ppc64le-4096ss-self_install"/>
-            <requires profile="self_install"/>
-        </profile>
     </profiles>
 
+    <!-- https://documentation.suse.com/appliance/kiwi-9/single-html/kiwi/index.html#setup-for-luks -->
     <preferences profiles="x86-encrypted,x86-rt-encrypted">
-        <version>6.1</version>
+        <version>6.1.0</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>SLE</bootsplash-theme>
         <bootloader-theme>SLE</bootloader-theme>
@@ -283,24 +197,19 @@
         <type
             image="oem"
             initrd_system="dracut"
+            installiso="true"
+            installboot="install"
             filesystem="btrfs"
             firmware="uefi"
-            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 quiet systemd.show_status=1 net.ifnames=0"
+            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 quiet net.ifnames=0"
             bootpartition="false"
             bootkernel="custom"
             devicepersistency="by-uuid"
             btrfs_root_is_snapshot="true"
             btrfs_root_is_readonly_snapshot="true"
             btrfs_quota_groups="true"
-            luks_version="luks2"
-            luks="1234"
-	    luks_randomize="false"
-	    luks_pbkdf="pbkdf2"
         >
-            <luksformat>
-                <option name="--cipher" value="aes-xts-plain64"/>
-            </luksformat>
-            <bootloader name="grub2" console="gfxterm" use_disk_password="true" />
+            <bootloader name="grub2" console="gfxterm" timeout="1"/>
             <systemdisk>
                 <volume name="home"/>
                 <volume name="root"/>
@@ -313,11 +222,14 @@
                 <volume name="usr/local"/>
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
-            <size unit="G">4</size>
+            <oemconfig>
+                <oem-resize>false</oem-resize>
+            </oemconfig>
+            <size unit="G">2</size>
         </type>
     </preferences>
     <preferences profiles="x86,x86-rt">
-        <version>6.1</version>
+        <version>6.1.0</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>SLE</bootsplash-theme>
         <bootloader-theme>SLE</bootloader-theme>
@@ -328,7 +240,7 @@
             initrd_system="dracut"
             filesystem="btrfs"
             firmware="uefi"
-            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 quiet systemd.show_status=1 net.ifnames=0"
+            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 quiet net.ifnames=0"
             bootpartition="false"
             bootkernel="custom"
             devicepersistency="by-uuid"
@@ -353,7 +265,7 @@
     </preferences>
 
     <preferences profiles="x86-self_install,x86-rt-self_install">
-        <version>6.1</version>
+        <version>6.1.0</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>SLE</bootsplash-theme>
         <bootloader-theme>SLE</bootloader-theme>
@@ -368,7 +280,7 @@
             installboot="install"
             install_continue_on_timeout="false"
             firmware="uefi"
-            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 quiet systemd.show_status=1 net.ifnames=0"
+            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 quiet intel_iommu=on"
             bootpartition="false"
             bootkernel="custom"
             devicepersistency="by-uuid"
@@ -392,8 +304,8 @@
         </type>
     </preferences>
 
-    <preferences profiles="rpi,aarch64-rt">
-        <version>6.1</version>
+    <preferences profiles="rpi">
+        <version>6.1.0</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>SLE</bootsplash-theme>
         <bootloader-theme>SLE</bootloader-theme>
@@ -408,7 +320,7 @@
             install_continue_on_timeout="false"
             fsmountoptions="noatime"
             firmware="uefi"
-            kernelcmdline="security=selinux selinux=1 quiet systemd.show_status=1 net.ifnames=0"
+            kernelcmdline="console=ttyS0,115200n8 console=tty0 security=selinux selinux=1 quiet net.ifnames=0"
             bootpartition="false"
             devicepersistency="by-uuid"
             btrfs_root_is_snapshot="true"
@@ -432,51 +344,7 @@
             </systemdisk>
         </type>
     </preferences>
-    <preferences profiles="aarch64-self_install,aarch64-rt-self_install">
-        <version>6.1</version>
-        <packagemanager>zypper</packagemanager>
-        <bootsplash-theme>SLE</bootsplash-theme>
-        <bootloader-theme>SLE</bootloader-theme>
-        <rpm-excludedocs>true</rpm-excludedocs>
-        <locale>en_US</locale>
-        <type
-            image="oem"
-            initrd_system="dracut"
-            installiso="true"
-            installpxe="true"
-            filesystem="btrfs"
-            installboot="install"
-            install_continue_on_timeout="false"
-            firmware="uefi"
-            efipartsize="128"
-	    kernelcmdline="console=tty0 security=selinux selinux=0 net.ifnames=1"
-            bootpartition="false"
-            bootkernel="custom"
-            devicepersistency="by-uuid"
-            btrfs_root_is_snapshot="true"
-            btrfs_root_is_readonly_snapshot="true"
-            btrfs_quota_groups="true"
-            disk_start_sector="4096"
-        >
-            <bootloader name="grub2" console="gfxterm" timeout="3" />
-            <systemdisk>
-                <volume name="home"/>
-                <volume name="root"/>
-                <!-- on tmpfs jsc#SMO-2                <volume name="tmp"/> -->
-                <volume name="opt"/>
-                <volume name="srv"/>
-                <volume name="boot/grub2/arm64-efi" mountpoint="boot/grub2/arm64-efi"/>
-                <volume name="boot/writable"/>
-                <volume name="usr/local"/>
-                <volume name="var" copy_on_write="false"/>
-            </systemdisk>
-        <partitions>
-            <partition name="combustion" size="2048" mountpoint="/oem" filesystem="xfs"/>
-        </partitions>
-    </type>
-    </preferences>
-
-    <preferences profiles="x86-self_install-encrypted">
+    <preferences profiles="aarch64-self_install">
         <version>6.1.0</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>SLE</bootsplash-theme>
@@ -491,92 +359,16 @@
             installboot="install"
             install_continue_on_timeout="false"
             firmware="uefi"
-            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 net.ifnames=1 rd.kiwi.oem.installdevice=/dev/sda"
-            bootpartition="false"
-            bootkernel="custom"
-            devicepersistency="by-label"
-            btrfs_root_is_snapshot="true"
-            btrfs_root_is_readonly_snapshot="true"
-            btrfs_quota_groups="true"
-            disk_start_sector="4096"
-            luks_version="luks2"
-            luks="1234"
-            luks_randomize="false"
-            luks_pbkdf="pbkdf2"
-        >
-            <oemconfig>
-		<!--resize will be done after re-encrypt to speed up the process-->
-                <oem-resize>false</oem-resize>
-		<!--reboot instead of shutdown  - reboot required due to kexec problem with encryption -->
-		<oem-shutdown>false</oem-shutdown>
-		<oem-reboot>true</oem-reboot>
-		<!--speed up-->
-		<oem-skip-verify>true</oem-skip-verify>
-            </oemconfig>
-            <luksformat>
-                <option name="--cipher" value="aes" />
-            </luksformat>
-            <bootloader name="grub2" console="gfxterm" use_disk_password="true" timeout="3" timeout_style="menu" />
-            <systemdisk>
-                <volume name="home" />
-                <volume name="root" />
-                <!-- on tmpfs jsc#SMO-2                <volume name="tmp"/> -->
-                <volume name="opt" />
-                <volume name="srv" />
-                <volume name="boot/grub2/i386-pc" />
-                <volume name="boot/grub2/x86_64-efi" mountpoint="boot/grub2/x86_64-efi" />
-                <volume name="boot/writable" />
-                <volume name="usr/local" />
-                <volume name="var" copy_on_write="false" />
-            </systemdisk>
-        <partitions>
-            <partition name="combustion" size="2048" mountpoint="/oem" filesystem="xfs"/>
-        </partitions>
-        </type>
-    </preferences>
-
-    <preferences profiles="aarch64-self_install-encrypted,aarch64-rt-self_install-encrypted">
-        <version>6.1</version>
-        <packagemanager>zypper</packagemanager>
-        <bootsplash-theme>SLE</bootsplash-theme>
-        <bootloader-theme>SLE</bootloader-theme>
-        <rpm-excludedocs>true</rpm-excludedocs>
-        <locale>en_US</locale>
-        <type
-            image="oem"
-            initrd_system="dracut"
-            installiso="true"
-            installpxe="true"
-            filesystem="btrfs"
-            installboot="install"
-            install_continue_on_timeout="false"
-            firmware="uefi"
-            efipartsize="128"
-            kernelcmdline="console=tty0 security=selinux selinux=0 net.ifnames=1"
+            efipartsize="128"     
+	    kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 quiet net.ifnames=0"
             bootpartition="false"
             bootkernel="custom"
             devicepersistency="by-uuid"
             btrfs_root_is_snapshot="true"
             btrfs_root_is_readonly_snapshot="true"
             btrfs_quota_groups="true"
-   	    disk_start_sector="4096"
-	    luks_version="luks2"
-            luks="1234"
-            luks_randomize="false"
-            luks_pbkdf="pbkdf2"
-	>
-            <oemconfig>
-                <!--resize will be done after re-encrypt to speed up the process-->
-                <oem-resize>false</oem-resize>
-                <!--reboot instead of shutdown - reboot required due to kexec problem with encryption-->
-                <oem-shutdown>false</oem-shutdown>
-                <oem-reboot>true</oem-reboot>
-                <!--speed up-->
-                <oem-skip-verify>true</oem-skip-verify>
-            </oemconfig>
-            <luksformat>
-                <option name="--cipher" value="aes"/>
-            </luksformat>
+            disk_start_sector="4096"
+        >
             <bootloader name="grub2" console="gfxterm" timeout="3" />
             <systemdisk>
                 <volume name="home"/>
@@ -589,29 +381,26 @@
                 <volume name="usr/local"/>
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
-        <partitions>
-            <partition name="combustion" size="2048" mountpoint="/oem" filesystem="xfs"/>
-        </partitions>
-    </type>
+        </type>
     </preferences>
 
     <preferences profiles="s390-kvm">
-        <version>6.1</version>
+        <version>6.1.0</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>SLE</bootsplash-theme>
         <bootloader-theme>SLE</bootloader-theme>
         <rpm-excludedocs>true</rpm-excludedocs>
         <locale>en_US</locale>
-        <!-- Use ignition.platform.id=metal to avoid bsc#1227689 -->
+
         <type
             image="oem"
             filesystem="btrfs"
             bootpartition="true"
             bootpartsize="300"
-            bootfilesystem="ext4"
+            bootfilesystem="ext2"
         initrd_system="dracut"
         format="qcow2"
-            kernelcmdline="security=selinux selinux=1 quiet systemd.show_status=1 ignition.platform.id=metal"
+            kernelcmdline="hvc_iucv=8 TERM=dumb security=selinux selinux=1 quiet"
         devicepersistency="by-uuid"
             btrfs_root_is_snapshot="true"
             btrfs_root_is_readonly_snapshot="true"
@@ -634,7 +423,7 @@
 
 
     <preferences profiles="s390-dasd">
-        <version>6.1</version>
+        <version>6.1.0</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>SLE</bootsplash-theme>
         <bootloader-theme>SLE</bootloader-theme>
@@ -645,9 +434,9 @@
           filesystem="btrfs"
           bootpartition="true"
           bootpartsize="300"
-          bootfilesystem="ext4"
+          bootfilesystem="ext2"
           initrd_system="dracut"
-          kernelcmdline="hvc_iucv=8 TERM=dumb security=selinux selinux=1 quiet systemd.show_status=1"
+          kernelcmdline="hvc_iucv=8 TERM=dumb security=selinux selinux=1 quiet"
           devicepersistency="by-uuid"
           target_blocksize="4096"
           btrfs_root_is_snapshot="true"
@@ -672,7 +461,7 @@
 
 
     <preferences profiles="s390-fba">
-        <version>6.1</version>
+        <version>6.1.0</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>SLE</bootsplash-theme>
         <bootloader-theme>SLE</bootloader-theme>
@@ -683,9 +472,9 @@
           filesystem="btrfs"
           bootpartition="true"
           bootpartsize="300"
-          bootfilesystem="ext4"
+          bootfilesystem="ext2"
           initrd_system="dracut"
-          kernelcmdline="hvc_iucv=8 TERM=dumb security=selinux selinux=1 quiet systemd.show_status=1"
+          kernelcmdline="hvc_iucv=8 TERM=dumb security=selinux selinux=1 quiet"
           devicepersistency="by-uuid"
           btrfs_root_is_snapshot="true"
           btrfs_root_is_readonly_snapshot="true"
@@ -706,47 +495,9 @@
         </type>
     </preferences>
 
-    <preferences profiles="s390-fcp">
-        <version>6.1</version>
-        <packagemanager>zypper</packagemanager>
-        <bootsplash-theme>SLE</bootsplash-theme>
-        <bootloader-theme>SLE</bootloader-theme>
-        <rpm-excludedocs>true</rpm-excludedocs>
-        <locale>en_US</locale>
-        <type
-          image="oem"
-          filesystem="btrfs"
-          installpxe="true"
-          bootpartition="true"
-          bootpartsize="300"
-          bootfilesystem="ext4"
-          initrd_system="dracut"
-          kernelcmdline="hvc_iucv=8 TERM=dumb security=selinux selinux=1 quiet systemd.show_status=1"
-          devicepersistency="by-uuid"
-          btrfs_root_is_snapshot="true"
-          btrfs_root_is_readonly_snapshot="true"
-          btrfs_quota_groups="true"
-        >
-            <oemconfig>
-                <oem-multipath-scan>true</oem-multipath-scan>
-            </oemconfig>
-            <bootloader name="grub2_s390x_emu" console="serial" timeout="3" targettype="SCSI"/>
-            <systemdisk>
-                <volume name="home"/>
-                <volume name="root"/>
-                <volume name="opt"/>
-                <volume name="srv"/>
-                <volume name="boot/grub2/s390x-emu" mountpoint="boot/grub2/s390x-emu"/>
-                <volume name="boot/writable"/>
-                <volume name="usr/local"/>
-                <volume name="var" copy_on_write="false"/>
-            </systemdisk>
-            <size unit="G">5</size>
-        </type>
-    </preferences>
 
     <preferences profiles="x86-vmware">
-        <version>6.1</version>
+        <version>6.1.0</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>SLE</bootsplash-theme>
         <bootloader-theme>SLE</bootloader-theme>
@@ -755,7 +506,7 @@
         <type
             image="oem"
             filesystem="btrfs"
-            format="vmdk"
+            format="ova"
             firmware="uefi"
             bootpartition="false"
             bootkernel="custom"
@@ -777,11 +528,17 @@
                 <volume name="var" copy_on_write="false"/>
             </systemdisk>
             <size unit="G">24</size>
-            <machine memory="1024" HWversion="10" guestOS="suse-64"/>
+            <!-- HW Version https://kb.vmware.com/s/article/1003746 -->
+            <machine ncpus="2" memory="4096" HWversion="15" guestOS="sles15-64" ovftype="vmware">
+                    <vmnic driver="vmxnet3" interface="0" mode="none"/>
+                    <vmconfig-entry>ethernet0.networkName = "192-168-0"</vmconfig-entry>
+                    <vmdisk id="0" controller="pvscsi" diskmode="monolithicSparse"/>
+                    <vmconfig-entry>firmware = "efi"</vmconfig-entry>
+	    </machine>
         </type>
     </preferences>
     <preferences profiles="x86-qcow">
-        <version>6.1</version>
+        <version>6.1.0</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>SLE</bootsplash-theme>
         <bootloader-theme>SLE</bootloader-theme>
@@ -792,7 +549,7 @@
             format="qcow2"
             filesystem="btrfs"
             firmware="uefi"
-            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 quiet systemd.show_status=1 net.ifnames=0 ignition.platform.id=qemu"
+            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 quiet net.ifnames=0 ignition.platform.id=qemu"
             bootpartition="false"
             bootkernel="custom"
             devicepersistency="by-uuid"
@@ -818,7 +575,7 @@
     </preferences>
  
     <preferences profiles="aarch64-qcow">
-        <version>6.1</version>
+        <version>6.1.0</version>
         <packagemanager>zypper</packagemanager>
         <bootsplash-theme>SLE</bootsplash-theme>
         <bootloader-theme>SLE</bootloader-theme>
@@ -830,7 +587,7 @@
             filesystem="btrfs"
             firmware="uefi"
             efipartsize="128"     
-            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 quiet systemd.show_status=1 net.ifnames=0 ignition.platform.id=qemu"
+            kernelcmdline="console=ttyS0,115200 console=tty0 security=selinux selinux=1 quiet net.ifnames=0 ignition.platform.id=qemu"
             bootpartition="false"
             bootkernel="custom"
             devicepersistency="by-uuid"
@@ -852,164 +609,9 @@
         </type>
     </preferences>
 
-    <preferences profiles="ppc64le-512ss">
-        <version>6.1</version>
-        <packagemanager>zypper</packagemanager>
-        <bootsplash-theme>SLE</bootsplash-theme>
-        <bootloader-theme>SLE</bootloader-theme>
-        <rpm-excludedocs>true</rpm-excludedocs>
-        <locale>en_US</locale>
-        <!-- Use ignition.platform.id=metal to avoid bsc#1227689 -->
-        <type
-            image="oem"
-            filesystem="btrfs"
-            firmware="ofw"
-            kernelcmdline="console=hvc0,115200 security=selinux selinux=1 quiet systemd.show_status=1 net.ifnames=0 ignition.platform.id=metal"
-            bootpartition="false"
-            bootkernel="custom"
-            devicepersistency="by-uuid"
-            btrfs_root_is_snapshot="true"
-            btrfs_root_is_readonly_snapshot="true"
-            btrfs_quota_groups="true"
-        >
-            <systemdisk>
-                <volume name="home"/>
-                <volume name="root"/>
-		<!-- on tmpfs jsc#SMO-2                <volume name="tmp"/> -->
- 		<volume name="opt"/>
-                <volume name="srv"/>
-                <volume name="boot/grub2/powerpc-ieee1275"/>
-                <volume name="boot/writable"/>
-		<volume name="usr/local"/>
-		<volume name="var" copy_on_write="false"/>
-            </systemdisk>
-        </type>
-    </preferences>
-    <preferences profiles="ppc64le-4096ss">
-        <version>6.1</version>
-        <packagemanager>zypper</packagemanager>
-        <bootsplash-theme>SLE</bootsplash-theme>
-        <bootloader-theme>SLE</bootloader-theme>
-        <rpm-excludedocs>true</rpm-excludedocs>
-        <locale>en_US</locale>
-        <!-- TODO: supposedly this is needed as type attribute, but kiwi needs patching
-             disk_start_sector="256" -->
-        <!-- Use ignition.platform.id=metal to avoid bsc#1227689 -->
-        <type
-            image="oem"
-            target_blocksize="4096"
-            filesystem="btrfs"
-            firmware="ofw"
-            kernelcmdline="console=hvc0,115200 security=selinux selinux=1 quiet systemd.show_status=1 net.ifnames=0 ignition.platform.id=metal"
-            bootpartition="false"
-            bootkernel="custom"
-            devicepersistency="by-uuid"
-            btrfs_root_is_snapshot="true"
-            btrfs_root_is_readonly_snapshot="true"
-            btrfs_quota_groups="true"
-        >
-            <systemdisk>
-                <volume name="home"/>
-                <volume name="root"/>
-		<!-- on tmpfs jsc#SMO-2                <volume name="tmp"/> -->
- 		<volume name="opt"/>
-                <volume name="srv"/>
-                <volume name="boot/grub2/powerpc-ieee1275"/>
-                <volume name="boot/writable"/>
-		<volume name="usr/local"/>
-		<volume name="var" copy_on_write="false"/>
-            </systemdisk>
-        </type>
-    </preferences>
-
-    <preferences profiles="ppc64le-512ss-self_install">
-        <version>6.1</version>
-        <packagemanager>zypper</packagemanager>
-        <bootsplash-theme>SLE</bootsplash-theme>
-        <bootloader-theme>SLE</bootloader-theme>
-        <rpm-excludedocs>true</rpm-excludedocs>
-        <locale>en_US</locale>
-        <!-- Use ignition.platform.id=metal to avoid bsc#1227689 -->
-        <type
-            image="oem"
-            installiso="true"
-            installpxe="true"
-            filesystem="btrfs"
-            firmware="ofw"
-            kernelcmdline="console=hvc0,115200 security=selinux selinux=1 quiet net.ifnames=0 ignition.platform.id=metal"
-            bootpartition="false"
-            bootkernel="custom"
-            devicepersistency="by-uuid"
-            btrfs_root_is_snapshot="true"
-            btrfs_root_is_readonly_snapshot="true"
-            btrfs_quota_groups="true"
-        >
-            <installmedia>
-                <initrd action="omit">
-                    <dracut module="drm"/>
-                </initrd>
-            </installmedia>
-            <systemdisk>
-                <volume name="home"/>
-                <volume name="root"/>
-		<!-- on tmpfs jsc#SMO-2                <volume name="tmp"/> -->
- 		<volume name="opt"/>
-                <volume name="srv"/>
-                <volume name="boot/grub2/powerpc-ieee1275"/>
-                <volume name="boot/writable"/>
-		<volume name="usr/local"/>
-		<volume name="var" copy_on_write="false"/>
-            </systemdisk>
-        </type>
-    </preferences>
-    <preferences profiles="ppc64le-4096ss-self_install">
-        <version>6.1</version>
-        <packagemanager>zypper</packagemanager>
-        <bootsplash-theme>SLE</bootsplash-theme>
-        <bootloader-theme>SLE</bootloader-theme>
-        <rpm-excludedocs>true</rpm-excludedocs>
-        <locale>en_US</locale>
-        <!-- TODO: supposedly this is needed as type attribute, but kiwi needs patching
-             disk_start_sector="256" -->
-        <!-- Use ignition.platform.id=metal to avoid bsc#1227689 -->
-        <type
-            image="oem"
-            installiso="true"
-            installpxe="true"
-            target_blocksize="4096"
-            filesystem="btrfs"
-            firmware="ofw"
-            kernelcmdline="console=hvc0,115200 security=selinux selinux=1 quiet systemd.show_status=1 net.ifnames=0 ignition.platform.id=metal"
-            bootpartition="false"
-            bootkernel="custom"
-            devicepersistency="by-uuid"
-            btrfs_root_is_snapshot="true"
-            btrfs_root_is_readonly_snapshot="true"
-            btrfs_quota_groups="true"
-        >
-            <installmedia>
-                <initrd action="omit">
-                    <dracut module="drm"/>
-                </initrd>
-            </installmedia>
-            <systemdisk>
-                <volume name="home"/>
-                <volume name="root"/>
-		<!-- on tmpfs jsc#SMO-2                <volume name="tmp"/> -->
- 		<volume name="opt"/>
-                <volume name="srv"/>
-                <volume name="boot/grub2/powerpc-ieee1275"/>
-                <volume name="boot/writable"/>
-		<volume name="usr/local"/>
-		<volume name="var" copy_on_write="false"/>
-            </systemdisk>
-        </type>
-    </preferences>
-
-
-   <repository type="rpm-md" >
-        <source path='obsrepositories:/'/>
-    </repository>
+	    <!--   <repository type="rpm-md" > -->
+	    <!--		    <source path='obsrepositories:/'/> -->
+	    <!--   </repository>--> 
 
     <packages type="image" profiles="full">
         <namedCollection name="base_transactional"/>
@@ -1032,9 +634,10 @@
         <package name="firewalld"/>
         <package name="wpa_supplicant" arch="x86_64,aarch64"/>
 	<package name="libpwquality-tools"/>
+        <package name="k3s-install"/>
     </packages>
 
-    <packages type="image" profiles="x86-encrypted,x86-rt-encrypted,x86-self_install-encrypted">
+    <packages type="image" profiles="x86-encrypted,x86-rt-encrypted">
         <!-- full disk encryption stuff -->
         <package name="device-mapper"/>
         <package name="cryptsetup"/>
@@ -1043,14 +646,16 @@
         <package name="libtss2-tcti-device0"/>
         <package name="tpm2.0-tools"/>
         <package name="tpm2-0-tss"/>
-        <package name="fde-firstboot"/>
+        <package name="fde-tools"/>
     </packages>
 
     <packages type="image" profiles="container-host">
         <namedCollection name="base_transactional"/>
         <package name="patterns-base-transactional"/>
         <namedCollection name="container_runtime_podman"/>
-        <package name="patterns-container-runtime_podman"/>
+        <package name="patterns-container-runtime_podman"/> 
+        <namedCollection name="cockpit"/>
+        <package name="patterns-base-cockpit"/>
         <namedCollection name="selinux"/>
         <package name="patterns-base-selinux"/>
         <package name="suseconnect-ng"/>
@@ -1114,8 +719,7 @@
         <package name="grub2-x86_64-efi" arch="x86_64"/>
         <package name="grub2-arm64-efi" arch="aarch64"/>
         <package name="grub2-s390x-emu" arch="s390x"/>
-        <package name="grub2-powerpc-ieee1275" arch="ppc64le"/>
-        <package name="grub2-branding-SLE" bootinclude="true" arch="x86_64,aarch64,ppc64le"/>
+        <package name="grub2-branding-SLE" bootinclude="true" arch="x86_64,aarch64"/>
         <package name="grub2-snapper-plugin"/>
         <package name="shim" arch="x86_64,aarch64"/>
 	<package name="mokutil" arch="x86_64,aarch64"/>
@@ -1123,43 +727,60 @@
 	    <package name="kpartx" arch="s390x"/>--> <!-- previous releases picked it always, now kiwi picks partx instead -->
     </packages>
     <!-- rpi kernel-default-base does not provide all necessary drivers -->
-    <packages type="image" profiles="rpi,aarch64-self_install,x86,x86-encrypted,x86-legacy,x86-self_install,x86-vmware,x86-qcow,aarch64-qcow,s390-kvm,s390-dasd,s390-fba,s390-fcp,ppc64le-512ss,ppc64le-4096ss,ppc64le-512ss-self_install,ppc64le-4096ss-self_install,aarch64-self_install-encrypted,x86-self_install-encrypted">
+    <packages type="image" profiles="x86,x86-encrypted,x86-legacy,x86-self_install,x86-vmware,x86-qcow,aarch64-qcow,s390-kvm,s390-dasd,s390-fba">
         <package name="kernel-default"/>
         <package name="kernel-firmware-all"/>
     </packages>
-    <packages type="image" profiles="x86-rt,x86-rt-self_install,x86-rt-encrypted,aarch64-rt,aarch64-rt-self_install,aarch64-rt-self_install-encrypted">
+    <packages type="image" profiles="x86-rt,x86-rt-self_install,x86-rt-encrypted">
         <package name="kernel-rt"/>
-        <package name="kernel-firmware-all"/>
+	<package name="kernel-firmware-all"/>
 	<!-- FIXME intentionally removed from ALP code stream 
-        <package name="cpuset"/> -->
+	<package name="cpuset"/> -->
     </packages>
-    <packages type="image" profiles="s390-kvm,s390-dasd,s390-fba,s390-fcp">
-        <package name="dracut-kiwi-oem-dump"/>
+    <!-- makes the image build, but also include kernel-default
+    <packages type="image" profiles="x86-rt-encrypted">
+        <package name="kernel-default-extra"/>
+    </packages> -->
+    <packages type="image" profiles="s390-kvm,s390-dasd,s390-fba">
         <package name="dracut-kiwi-oem-repart"/>
         <package name="blog"/>
     </packages>
-    <!-- FCP is usually used multipathed. -->
-    <packages type="image" profiles="s390-fcp">
-        <package name="multipath-tools"/>
-    </packages>
-    <packages type="image" profiles="x86,x86-encrypted,x86-rt-encrypted,x86-self_install,x86-legacy,x86-vmware,x86-rt,x86-rt-self_install,x86-qcow,aarch64-qcow,rpi,aarch64-self_install,aarch64-rt,aarch64-rt-self_install,ppc64le-512ss,ppc64le-4096ss,ppc64le-512ss-self_install,ppc64le-4096ss-self_install,aarch64-self_install-encrypted,aarch64-rt-self_install-encrypted,x86-self_install-encrypted">
+    <packages type="image" profiles="x86,x86-encrypted,x86-rt-encrypted,x86-self_install,x86-legacy,x86-vmware,x86-rt,x86-rt-self_install,x86-qcow,aarch64-qcow,rpi,aarch64-self_install">
         <package name="dracut-kiwi-oem-repart"/>
         <package name="dracut-kiwi-oem-dump"/>
     </packages>
-    <packages type="image" profiles="rpi,aarch64-self_install,aarch64-rt,aarch64-rt-self_install,aarch64-self_install-encrypted,aarch64-rt-self_install-encrypted">
+    <packages type="image" profiles="rpi,aarch64-self_install">
         <package name="raspberrypi-firmware" arch="aarch64"/>
         <package name="raspberrypi-firmware-config" arch="aarch64"/>
         <package name="raspberrypi-firmware-dt" arch="aarch64"/>
         <package name="u-boot-rpiarm64" arch="aarch64"/>
         <package name="dracut-kiwi-oem-repart"/>
         <package name="bcm43xx-firmware"/>
+        <package name="kernel-firmware-all"/><!-- Fix choice between kernel-firmware and kernel-firmware-all -->
         <package name="wireless-regdb"/>
         <package name="wireless-tools"/>
         <package name="wpa_supplicant"/>
         <package name="grub2-arm64-efi"/>
+        <!-- kernel-default-base does not have all required drivers -->
+        <package name="kernel-default"/>
     </packages>
     <packages type="bootstrap">
         <package name="filesystem"/>
+        <!-- Avoid that zypper picks the busybox-foo variant for those, that would fail later -->
+        <package name="gawk"/>
+        <package name="coreutils"/>
+        <package name="gzip"/>
+    </packages>
+
+    <packages type="image" profiles="x86-vmware,x86-self_install,x86-rt-self_install,x86-encrypted">
+    	<!-- iscsi and nfs i.e. for longhorn -->
+        <package name="open-iscsi"/>
+        <package name="nfs-client"/>
+    	<!-- For Rancher Integration -->
+        <!-- <package name="elemental-register"/> -->
+        <!-- <package name="elemental-system-agent"/> -->
+    	<!-- For SUMA Integration -->
+        <package name="venv-salt-minion"/> 
     </packages>
 
     <!-- bsc#1221936 -->
@@ -1171,53 +792,4 @@
     <packages type="image" profiles="x86-qcow,aarch64-qcow">
         <package name="qemu-guest-agent"/>
     </packages>
-    
-    <!-- jsc#PED-8599 -->
-    <packages type="image" profiles="Base,Base-encrypted,Base-RT,Base-RT-encrypted,Base-fba,Base-dasd,Base-fcp,Base-512,Base-4096,Default,Default-encrypted,Default-fba,Default-dasd,Default-fcp,Default-512,Default-4096">
-        <package name="usbguard"/>
-    </packages>
-
-    <!-- jsc#PED-8788 -->
-    <packages type="image" profiles="Base-RT,Base-RT-encrypted,x86-rt-encrypted,x86-rt,x86-rt-self_install,aarch64-rt,aarch64-rt-self_install">
-        <package name="stalld"/>
-    </packages>
-
-    <!-- install nvidia packages for jetson -->
-    <packages type="image" profiles="aarch64-self_install,aarch64-rt-self_install,aarch64-rt,aarch64-self_install-encrypted,aarch64-rt-self_install-encrypted">
-        <package name="nvidia-jetson-kmp-default"/>
-        <package name="nvidia-jetpack-all"/>
-        <package name="nvidia-container-toolkit"/>
-    </packages>
-
-    <!-- install open-iscsi and nfs-client for longhorn -->
-    <packages type="image">
-        <package name="open-iscsi"/>
-        <package name="nfs-client"/>
-    </packages>
-
-    <!-- install salt-minion for SUSE manager integrarion -->
-    <packages type="image">
-        <package name="venv-salt-minion"/>
-    </packages>
-
-    <!-- install elemental agent for rancher integrarion -->
-    <packages type="image">
-        <package name="elemental-register"/>
-        <package name="elemental-system-agent"/>
-    </packages>
-
-    <!-- install encyption packages for aarch64 test -->
-    <packages type="image" profiles="aarch64-self_install-encrypted">
-        <!-- full disk encryption stuff -->
-        <package name="device-mapper"/>
-        <package name="cryptsetup"/>
-        <package name="system-user-tss"/>
-        <package name="libtss2-fapi1"/>
-        <package name="libtss2-tcti-device0"/>
-        <package name="tpm2.0-tools"/>
-        <package name="tpm2-0-tss"/>
-        <!-- <package name="fde-firstboot"/>-->
-    </packages>
-
 </image>
-

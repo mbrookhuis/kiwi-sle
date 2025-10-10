@@ -1,0 +1,8 @@
+defaultNamespace: kiosk
+namespaceLabels:
+    pod-security.kubernetes.io/enforce: privileged
+helm:
+  chart: ./kiosk
+  releaseName: kiosk
+  valuesFiles:
+    - values.yaml

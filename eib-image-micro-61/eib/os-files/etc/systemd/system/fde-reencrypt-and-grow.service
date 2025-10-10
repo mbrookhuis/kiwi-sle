@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright 2024 SUSE LLC
+
+[Unit]
+Description=Reencrypt the root device sealing the key with TPM and grow the partition to the maximum size
+
+# Same as YaST2-Firstboot.service here
+After=local-fs.target plymouth-start.service YaST2-Second-Stage.service
+Conflicts=plymouth-start.service
+Before=getty@tty1.service serial-getty@ttyS0.service serial-getty@ttyS1.service serial-getty@ttyS2.service
+Before=display-manager.service
+ConditionPathExists=/var/lib/reencrypt_system
+OnFailure=poweroff.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# In Pre - if creation fails, don't do the configuration again
+ExecStartPre=/usr/bin/rm -f /var/lib/reencrypt_system
+ExecStart=/bin/bash /var/opt/fde-reencrypt-and-grow.sh
+
+[Install]
+WantedBy=default.target

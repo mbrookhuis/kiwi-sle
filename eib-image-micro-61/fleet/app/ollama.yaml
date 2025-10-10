@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama
+  labels:
+    app: ollama
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ollama
+  template:
+    metadata:
+      labels:
+        app: ollama
+    spec:
+      runtimeClassName: nvidia
+      #      nodeSelector:
+      #        "nivdia.com/gpu.present": "true"
+      hostPID: true
+      containers:
+        - name: ollama
+          image: ollama/ollama:0.5.3-rc0
+          resources:
+            limits:
+              nvidia.com/gpu: 1

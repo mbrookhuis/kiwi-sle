@@ -1,0 +1,26 @@
+apiVersion: 1.1
+image:
+  arch: aarch64
+  imageType: iso
+  baseImage: SL-Micro.aarch64-6.0-Base-SelfInstall-GM2.install.iso
+  outputImageName: SL-Micro.aarch64-6.0-Base-SelfInstall-GM2.install-auto.iso
+operatingSystem:
+  isoConfiguration:
+    installDevice: /dev/nvme0n1
+  keymap: de
+  time:
+    timezone: Europe/Berlin
+    ntp:
+      forceWait: true
+      pools:
+        - 0.de.pool.ntp.org
+        - 1.de.pool.ntp.org
+        - 2.de.pool.ntp.org
+  users:
+    - username: root
+      createHomeDir: true
+      encryptedPassword: $6$TuFEzPIk8fjrkSxR$YSF9gjv.4auiwC0AMeAn9snrmA0N.2PPrluNic4pLOJD2yVqTOGZ.Z2lavWBD9/KO449Hud6zo2KzYE2/EJuS.
+      sshKeys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAIEA3P7KpLSXnkDfNfvmTkTIdlyPBRzwsHzAL60+Qw3L0U6VEuKFRLS7TTJE8s4XOdt1VxUmvWbBkEcJC8rG/g55leqJyuokZJkoNeRHdVDHT0430WpnmL21xkHl/6fGVxbxPWpwlp1XEWi8/sjvVvrc8LBeri44QMBfG8/3bkFx7zc= mweiss@nbmweiss2
+        - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAv1DS2t+Kmh7spHYFg2t0592otcq8YUnZXb17WgkpaWU5cS/2eLZoNbImURkbqpVC54zVwT2dUauJZG/2bXQBul8p2OK0Rgo+Vhhrbmtnvs4GXMfgxRUo3b+zadbMPZzOAxrEWJj8nkg5PV5+5jdxLR6/3ykZtRXn2kvh2/TMHMRpxE7x5xKwyAvXiGMK9kN0dTNEun9KKfNycXX1ZbvfJ02WuzQPA7K3i8eUZZeHlnRXso/66RWsmEPCipNua23wPrBXocsNFx75hvxDFwwvj1rj4SwB9afzcQbvvnLwPheEt8pl30Xozl7qZSVaYllZaEUMcrdklXESKhj87fKDhw== root@weiss-2
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOY5nEt0qssNTouZzN4LPg8M3OyDAwGDDvreTUMA6hQ5 dgiebert@suse
