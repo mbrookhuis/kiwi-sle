@@ -274,7 +274,7 @@
         <type
             image="oem"
             initrd_system="dracut"
-            installiso="false"
+            installiso="true"
             installpxe="true"
             filesystem="btrfs"
             installboot="install"
