@@ -1,0 +1,25 @@
+apiVersion: 1.1
+image:
+  arch: x86_64
+  imageType: combustion
+  baseImage: ""
+  outputImageName: combustion.iso
+operatingSystem:
+  keymap: us
+  time:
+    timezone: Europe/Amsterdam
+    ntp:
+      forceWait: true
+      pools:
+        - 0.de.pool.ntp.org
+        - 1.de.pool.ntp.org
+        - 2.de.pool.ntp.org
+  users:
+    - username: root
+      createHomeDir: true
+      encryptedPassword: $2a$10$FIcYc4mnAnaKi0XgnsiGW.8b9B9mf9/fcIH4gok.WXeRN2//INCqm
+      sshKeys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCaZ1YSiIDIWTMzcAg/tMikj/qVSbH4jTxPR5UKU9ejZHVtkYvFj27hIrmBRxnuy41Yg8jdBEYa+sBrMsE7hQ0AORIKs6r1EsBi6aeOrrV4+hhA7t/1AgQlnJrpytr9Ab/ibBNusWdn21zlgkH28sOP+xMBMfDqcYB+UL67LC395nsMUdvVy0R3hgjHV4KEU581Vmbs8ult8jtU/sEJS/d0FBLIsV+8A1xSGooCCoClphVKmAXPVuBrlj0C6tkxU3mJ2bZ6kiskgX4SM6I3s1ssOH7eS2RG5Z6KGS7Lk5vP7qXz7ri7abqpvkSHCe1MIzc7hMggG98KePe4StCKkrK9 root@mblab\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC60MkiI76TZJ+mbtuWXGw02pxH/5i0HJKI/O6lhtF/fTOTpCYPZ6daHwMaoxpJmbMLIo7lRR9vLS5xK0LifiHl5gRUR2nRBs7fvDPvJZllCNnvXopukTPf0cQdpTa33jOo56bDntFbGy+SbIwTpOcFstikTcuHPZrFq48b76DITXe+bY7RmBj4KQJ26+aK2j/JB/gE3Fxf594iQCYKHQtPq5/pNthxuBW+a0RdIiJLXkC/ZZPmd+9jfBpCqB0wV6fVEpSH/GUf5zVfKbh5tXKL7pCBEDX8fjsGFCocMeIuyguy2szSNdszu2e8foO0hx9m9gfG2tiuRMeYir6yQEqj mbrookhuis@mplaptop.suse.com
+  suma:
+    host: suma50sl.mb.int
+    activationKey: 1-sm61-dev
