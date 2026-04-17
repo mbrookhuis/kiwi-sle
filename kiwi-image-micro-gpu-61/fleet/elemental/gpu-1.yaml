@@ -1,0 +1,55 @@
+kind: Cluster
+apiVersion: provisioning.cattle.io/v1
+metadata:
+  name: gpu-1
+  namespace: fleet-default
+spec:
+  rkeConfig:
+    registries:
+      configs:
+        registry01.suse:
+          authConfigSecretName: registryconfig-auth-registry01-gpu-1
+          insecureSkipVerify: false
+      mirrors:
+        docker.io:
+          endpoint:
+            - https://registry01.suse/v2/
+          rewrite:
+            ^(?:library|)(.*): rke-test/docker.io/$1
+        registry.suse.com:
+          endpoint:
+            - https://registry01.suse/v2/
+          rewrite:
+            (.*): rke-test/registry.suse.com/$1
+        registry.rancher.com:
+          endpoint:
+            - https://registry01.suse/v2/
+          rewrite:
+            (.*): rke-test/registry.rancher.com/$1
+        registry.opensuse.org:
+          endpoint:
+            - https://registry01.suse/v2/
+          rewrite:
+            (.*): rke-test/registry.opensuse.org/$1
+        nvcr.io:
+          endpoint:
+            - https://registry01.suse/v2/
+          rewrite:
+            (.*): rke-test/nvcr.io/$1
+        dp.apps.rancher.io:
+          endpoint:
+            - https://registry01.suse/v2/
+          rewrite:
+            (.*): rke-test/dp.apps.rancher.io/$1
+    machinePools:
+      - name: gpu-1-nodes
+        controlPlaneRole: true
+        etcdRole: true
+        machineConfigRef:
+          apiVersion: elemental.cattle.io/v1beta1
+          kind: MachineInventorySelectorTemplate
+          name: gpu-1-nodes
+        quantity: 1
+        unhealthyNodeTimeout: 0s
+        workerRole: true
+  kubernetesVersion: v1.30.6+k3s1

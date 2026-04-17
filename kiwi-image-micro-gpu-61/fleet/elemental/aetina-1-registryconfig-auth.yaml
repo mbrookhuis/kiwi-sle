@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  password: TnVMZDRFRm12YThWc1V0ZjBuNldVVUVjVWJrckhMWlo=
+  username: cm9ib3QtYWV0aW5hLTE=
+immutable: false
+kind: Secret
+metadata:
+  name: registryconfig-auth-registry01-aetina-1
+  namespace: fleet-default
+type: kubernetes.io/basic-auth

@@ -1,0 +1,3 @@
+defaultNamespace: fleet-default
+helm:
+  releaseName: eib-gpu

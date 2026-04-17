@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  password: MjJPSjBrdklmYUdCUnZDS3hMa0kxNExjQWVUbVB6YTg=
+  username: cm9ib3QtZ3B1LTE= 
+immutable: false
+kind: Secret
+metadata:
+  name: registryconfig-auth-registry01-gpu-1
+  namespace: fleet-default
+type: kubernetes.io/basic-auth

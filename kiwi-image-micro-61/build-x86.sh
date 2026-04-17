@@ -41,7 +41,7 @@ system build \
 --add-repo file:/var/lib/Kiwi/repo,rpm-dir,common_repo,90,false,false \
 --add-bootstrap-package findutils \
 --add-bootstrap-package rhn-org-trusted-ssl-cert-osimage-1.0-1 \
---add-repo http://$SUSEMANAGER/ks/dist/child/$LIFECYCLE-sl-micro-6.1-pool-x86_64-clone/$DISTRIBUTION \
+--add-repo http://$SUSEMANAGER/ks/dist/child/$LIFECYCLE-sl-micro-6.1-pool-x86_64/$DISTRIBUTION \
 --add-repo http://$SUSEMANAGER/ks/dist/child/$LIFECYCLE-sl-micro-extras-6.1-pool-x86_64/$DISTRIBUTION \
 --add-repo http://$SUSEMANAGER/ks/dist/child/$LIFECYCLE-suse-manager-tools-for-sl-micro-6.1-x86_64/$DISTRIBUTION,repo-md,suse-manager-tools-for-sl-micro-6.1-x86_64
 exit
